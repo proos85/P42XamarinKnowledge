@@ -1,10 +1,5 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Prism.Navigation;
+using P42XamarinPrism.Helpers;
 
 namespace P42XamarinPrism.ViewModels
 {
@@ -13,7 +8,7 @@ namespace P42XamarinPrism.ViewModels
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Main Page";
+            Title = Secrets.MainLabel;
         }
     }
 }
