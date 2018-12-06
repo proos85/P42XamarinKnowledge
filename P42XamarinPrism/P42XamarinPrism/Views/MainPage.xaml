@@ -9,6 +9,9 @@
                 IsEnabled="{Binding IsAwesomeButtonEnabled}"
                 IsVisible="{Binding IsAwesomeButtonEnabled}"
                 Command="{Binding AwesomeButtonCommand}"/>
+        
+        <Button Text="Network state" 
+                Command="{Binding NetworkStateCommand}"/>
     </StackLayout>
 
 </ContentPage>

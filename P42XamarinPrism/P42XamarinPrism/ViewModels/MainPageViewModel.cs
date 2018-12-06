@@ -5,6 +5,7 @@ using Prism.Navigation;
 using P42XamarinPrism.Helpers;
 using Prism.Commands;
 using Prism.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace P42XamarinPrism.ViewModels
@@ -20,6 +21,7 @@ namespace P42XamarinPrism.ViewModels
         }
 
         public ICommand AwesomeButtonCommand { get; set; }
+        public ICommand NetworkStateCommand { get; set; }
 
         public MainPageViewModel(
             INavigationService navigationService,
@@ -36,11 +38,21 @@ namespace P42XamarinPrism.ViewModels
                 .ObservesProperty(() => IsAwesomeButtonEnabled)
                 ;
 
+            NetworkStateCommand = new DelegateCommand(async() => await NetworkStateActionAsync());
+
             Device.StartTimer(TimeSpan.FromSeconds(5), () =>
             {
                 IsAwesomeButtonEnabled = true;
                 return false;
             });
+        }
+
+        private async Task NetworkStateActionAsync()
+        {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                await _pageDialogService.DisplayAlertAsync("Network state", "Has Access", "OK");
+            }
         }
 
         private bool CanPerformAwesomeButtonLogic()
