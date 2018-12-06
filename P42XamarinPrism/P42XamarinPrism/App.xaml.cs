@@ -1,4 +1,6 @@
-﻿using Prism;
+﻿using P42XamarinPrism.Services;
+using P42XamarinPrism.Services.Interfaces;
+using Prism;
 using Prism.Ioc;
 using P42XamarinPrism.ViewModels;
 using P42XamarinPrism.Views;
@@ -30,6 +32,8 @@ namespace P42XamarinPrism
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+
+            containerRegistry.RegisterSingleton<IHelloWorldService, HelloWorldService>();
         }
     }
 }
