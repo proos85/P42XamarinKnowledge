@@ -32,6 +32,8 @@ namespace P42XamarinPrism
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<ViewA, ViewAViewModel>();
+            containerRegistry.RegisterForNavigation<ViewB, ViewBViewModel>();
 
             containerRegistry.RegisterSingleton<IHelloWorldService, HelloWorldService>();
         }
